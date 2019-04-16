@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'SKSliderSwitchView_Example' do
   pod 'SKSliderSwitchView', :path => '../'
-
+  
   target 'SKSliderSwitchView_Tests' do
     inherit! :search_paths
 
