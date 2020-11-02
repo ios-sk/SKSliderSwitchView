@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42ACAF1D20BC0DD0005DECA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAF1C20BC0DD0005DECA9 /* AppDelegate.m */; };
+		42ACAF2020BC0DD0005DECA9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAF1F20BC0DD0005DECA9 /* ViewController.m */; };
+		42ACAF2320BC0DD0005DECA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42ACAF2120BC0DD0005DECA9 /* Main.storyboard */; };
+		42ACAF2520BC0DD0005DECA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42ACAF2420BC0DD0005DECA9 /* Assets.xcassets */; };
+		42ACAF2820BC0DD0005DECA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42ACAF2620BC0DD0005DECA9 /* LaunchScreen.storyboard */; };
+		42ACAF2B20BC0DD0005DECA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAF2A20BC0DD0005DECA9 /* main.m */; };
+		42ACAF3E20BC0FB2005DECA9 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAF3D20BC0FB2005DECA9 /* ChildViewController.m */; };
+		612674A220F4ADB7004C658E /* SKSliderSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6126749C20F4ADB7004C658E /* SKSliderSwitchView.m */; };
+		612674A320F4ADB7004C658E /* SKSwithItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6126749D20F4ADB7004C658E /* SKSwithItem.m */; };
+		612674A420F4ADB7004C658E /* SKTopSwithView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6126749E20F4ADB7004C658E /* SKTopSwithView.m */; };
+		6194199F254FE41600E50843 /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6194199E254FE41600E50843 /* NewViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42ACAF1820BC0DD0005DECA9 /* SKSliderSwitchViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKSliderSwitchViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42ACAF1B20BC0DD0005DECA9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		42ACAF1C20BC0DD0005DECA9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		42ACAF1E20BC0DD0005DECA9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		42ACAF1F20BC0DD0005DECA9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		42ACAF2220BC0DD0005DECA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42ACAF2420BC0DD0005DECA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42ACAF2720BC0DD0005DECA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42ACAF2920BC0DD0005DECA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42ACAF2A20BC0DD0005DECA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42ACAF3C20BC0FB2005DECA9 /* ChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		42ACAF3D20BC0FB2005DECA9 /* ChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
+		6126749C20F4ADB7004C658E /* SKSliderSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSliderSwitchView.m; sourceTree = "<group>"; };
+		6126749D20F4ADB7004C658E /* SKSwithItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSwithItem.m; sourceTree = "<group>"; };
+		6126749E20F4ADB7004C658E /* SKTopSwithView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTopSwithView.m; sourceTree = "<group>"; };
+		6126749F20F4ADB7004C658E /* SKSwithItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSwithItem.h; sourceTree = "<group>"; };
+		612674A020F4ADB7004C658E /* SKSliderSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSliderSwitchView.h; sourceTree = "<group>"; };
+		612674A120F4ADB7004C658E /* SKTopSwithView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTopSwithView.h; sourceTree = "<group>"; };
+		6194199D254FE41600E50843 /* NewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
+		6194199E254FE41600E50843 /* NewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42ACAF1520BC0DD0005DECA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42ACAF0F20BC0DD0005DECA9 = {
+			isa = PBXGroup;
+			children = (
+				42ACAF1A20BC0DD0005DECA9 /* SKSliderSwitchViewDemo */,
+				42ACAF1920BC0DD0005DECA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42ACAF1920BC0DD0005DECA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42ACAF1820BC0DD0005DECA9 /* SKSliderSwitchViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42ACAF1A20BC0DD0005DECA9 /* SKSliderSwitchViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6126749B20F4ADB7004C658E /* SKSliderSwitchView */,
+				42ACAF1B20BC0DD0005DECA9 /* AppDelegate.h */,
+				42ACAF1C20BC0DD0005DECA9 /* AppDelegate.m */,
+				42ACAF1E20BC0DD0005DECA9 /* ViewController.h */,
+				42ACAF1F20BC0DD0005DECA9 /* ViewController.m */,
+				6194199D254FE41600E50843 /* NewViewController.h */,
+				6194199E254FE41600E50843 /* NewViewController.m */,
+				42ACAF3C20BC0FB2005DECA9 /* ChildViewController.h */,
+				42ACAF3D20BC0FB2005DECA9 /* ChildViewController.m */,
+				42ACAF2120BC0DD0005DECA9 /* Main.storyboard */,
+				42ACAF2420BC0DD0005DECA9 /* Assets.xcassets */,
+				42ACAF2620BC0DD0005DECA9 /* LaunchScreen.storyboard */,
+				42ACAF2920BC0DD0005DECA9 /* Info.plist */,
+				42ACAF2A20BC0DD0005DECA9 /* main.m */,
+			);
+			path = SKSliderSwitchViewDemo;
+			sourceTree = "<group>";
+		};
+		6126749B20F4ADB7004C658E /* SKSliderSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				612674A020F4ADB7004C658E /* SKSliderSwitchView.h */,
+				6126749C20F4ADB7004C658E /* SKSliderSwitchView.m */,
+				6126749F20F4ADB7004C658E /* SKSwithItem.h */,
+				6126749D20F4ADB7004C658E /* SKSwithItem.m */,
+				612674A120F4ADB7004C658E /* SKTopSwithView.h */,
+				6126749E20F4ADB7004C658E /* SKTopSwithView.m */,
+			);
+			name = SKSliderSwitchView;
+			path = ../../SKSliderSwitchView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42ACAF1720BC0DD0005DECA9 /* SKSliderSwitchViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42ACAF2E20BC0DD0005DECA9 /* Build configuration list for PBXNativeTarget "SKSliderSwitchViewDemo" */;
+			buildPhases = (
+				42ACAF1420BC0DD0005DECA9 /* Sources */,
+				42ACAF1520BC0DD0005DECA9 /* Frameworks */,
+				42ACAF1620BC0DD0005DECA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SKSliderSwitchViewDemo;
+			productName = SKSliderSwitchViewDemo;
+			productReference = 42ACAF1820BC0DD0005DECA9 /* SKSliderSwitchViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42ACAF1020BC0DD0005DECA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = llk;
+				TargetAttributes = {
+					42ACAF1720BC0DD0005DECA9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 42ACAF1320BC0DD0005DECA9 /* Build configuration list for PBXProject "SKSliderSwitchViewDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42ACAF0F20BC0DD0005DECA9;
+			productRefGroup = 42ACAF1920BC0DD0005DECA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42ACAF1720BC0DD0005DECA9 /* SKSliderSwitchViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42ACAF1620BC0DD0005DECA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42ACAF2820BC0DD0005DECA9 /* LaunchScreen.storyboard in Resources */,
+				42ACAF2520BC0DD0005DECA9 /* Assets.xcassets in Resources */,
+				42ACAF2320BC0DD0005DECA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42ACAF1420BC0DD0005DECA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42ACAF2020BC0DD0005DECA9 /* ViewController.m in Sources */,
+				612674A220F4ADB7004C658E /* SKSliderSwitchView.m in Sources */,
+				42ACAF3E20BC0FB2005DECA9 /* ChildViewController.m in Sources */,
+				42ACAF2B20BC0DD0005DECA9 /* main.m in Sources */,
+				612674A420F4ADB7004C658E /* SKTopSwithView.m in Sources */,
+				612674A320F4ADB7004C658E /* SKSwithItem.m in Sources */,
+				42ACAF1D20BC0DD0005DECA9 /* AppDelegate.m in Sources */,
+				6194199F254FE41600E50843 /* NewViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		42ACAF2120BC0DD0005DECA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42ACAF2220BC0DD0005DECA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42ACAF2620BC0DD0005DECA9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42ACAF2720BC0DD0005DECA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42ACAF2C20BC0DD0005DECA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		42ACAF2D20BC0DD0005DECA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42ACAF2F20BC0DD0005DECA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SKSliderSwitchViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SK.SKSliderSwitchViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42ACAF3020BC0DD0005DECA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SKSliderSwitchViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SK.SKSliderSwitchViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42ACAF1320BC0DD0005DECA9 /* Build configuration list for PBXProject "SKSliderSwitchViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42ACAF2C20BC0DD0005DECA9 /* Debug */,
+				42ACAF2D20BC0DD0005DECA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42ACAF2E20BC0DD0005DECA9 /* Build configuration list for PBXNativeTarget "SKSliderSwitchViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42ACAF2F20BC0DD0005DECA9 /* Debug */,
+				42ACAF3020BC0DD0005DECA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42ACAF1020BC0DD0005DECA9 /* Project object */;
+}
