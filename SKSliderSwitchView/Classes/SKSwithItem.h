@@ -44,7 +44,7 @@
 /**
  *  添加双击事件回调
  */
-- (void)setDoubleTapHandler:(void (^)(void))handler;
+- (void)setDoubleTapHandler:(void (^)(NSInteger index))handler;
 
 
 @end

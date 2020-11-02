@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIView *doubleTapView;
 @property (nonatomic, assign) CGFloat verticalOffset;
 @property (nonatomic, assign) CGFloat spacing;
-@property (nonatomic, copy) void (^doubleTapHandler)(void);
+@property (nonatomic, copy) void (^doubleTapHandler)(NSInteger index);
 
 @end
 
@@ -29,7 +29,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     [self setup];
 }
 
@@ -92,10 +91,11 @@
     }
 }
 
-- (void)setDoubleTapHandler:(void (^)(void))handler {
+- (void)setDoubleTapHandler:(void (^)(NSInteger index))handler {
     _doubleTapHandler = handler;
     if (!self.doubleTapView) {
         self.doubleTapView = [[UIView alloc] initWithFrame:self.bounds];
+        self.doubleTapView.hidden = YES;
         [self addSubview:self.doubleTapView];
         UITapGestureRecognizer *doubleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapped:)];
         doubleRecognizer.numberOfTapsRequired = 2;
@@ -105,7 +105,7 @@
 
 - (void)doubleTapped:(UITapGestureRecognizer *)recognizer {
     if (self.doubleTapHandler) {
-        self.doubleTapHandler();
+        self.doubleTapHandler(self.index);
     }
 }
 

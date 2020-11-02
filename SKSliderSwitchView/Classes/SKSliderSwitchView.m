@@ -8,14 +8,7 @@
 
 #import "SKSliderSwitchView.h"
 
-#define kTabBarHeight   44
-#define kNomColor   [UIColor blackColor]
-#define kSelColor   [UIColor redColor]
-#define kBGColor    [UIColor redColor]
-#define kNomFont    [UIFont systemFontOfSize:14]
-#define kSelFont    [UIFont systemFontOfSize:16]
-
-@interface SKSliderSwitchView ()
+@interface SKSliderSwitchView ()<UIScrollViewDelegate, SKTopSwithViewDelegate>
 
 @property (nonatomic, strong, readonly) SKTopSwithView *tabBar;
 @property (nonatomic, strong) UIScrollView *rootScrollView;
@@ -23,6 +16,26 @@
 @end
 
 @implementation SKSliderSwitchView
+
++ (CGFloat)tabBarHeight{
+    return 44;
+}
+
++ (UIColor *)normalColor{
+    return [UIColor blackColor];
+}
+
++ (UIColor *)selectedColor{
+    return [UIColor redColor];
+}
+
++ (UIFont *)normalFont{
+    return [UIFont systemFontOfSize:14];
+}
+
++ (UIFont *)selectedFont{
+    return [UIFont systemFontOfSize:16];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -59,12 +72,13 @@
     _tabBar.itemFontChangeFollowContentScroll = YES;
     _tabBar.itemColorChangeFollowContentScroll = NO;
     
-    _tabItemTitleColor = kNomColor;
-    _tabItemTitleSelectedColor = kSelColor;
-    _tabItemSelectedBgColor = kSelColor;
-    _tabItemTitleFont = kNomFont;
-    _tabItemTitleSelectedFont = kSelFont;
+    _tabItemTitleColor = [SKSliderSwitchView normalColor];
+    _tabItemTitleSelectedColor = [SKSliderSwitchView selectedColor];
+    _tabItemSelectedBgColor = [SKSliderSwitchView selectedColor];
+    _tabItemTitleFont = [SKSliderSwitchView normalFont];
+    _tabItemTitleSelectedFont = [SKSliderSwitchView selectedFont];
     _leftAndRightSpacing = 10;
+    _tabItemSelectedBgInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     
     [self addSubview:_tabBar];
     [self setupFrameOfTabBarAndContentView];
@@ -73,20 +87,15 @@
 // 设置默认的tabBar的frame和contentViewFrame
 - (void)setupFrameOfTabBarAndContentView {
     CGSize screenSize = self.bounds.size;
-    CGFloat contentViewHeight = screenSize.height - kTabBarHeight;
-    [self setTabBarFrame:CGRectMake(0, 0, screenSize.width, kTabBarHeight)
-        contentViewFrame:CGRectMake(0, kTabBarHeight, screenSize.width, contentViewHeight)];
+    CGFloat contentViewHeight = screenSize.height - [SKSliderSwitchView tabBarHeight];
+    [self setTabBarFrame:CGRectMake(0, 0, screenSize.width, [SKSliderSwitchView tabBarHeight])
+        contentViewFrame:CGRectMake(0, [SKSliderSwitchView tabBarHeight], screenSize.width, contentViewHeight)];
 }
 
 // 设置tabBar的frame和contentViewFrame
 - (void)setTabBarFrame:(CGRect)tabBarFrame contentViewFrame:(CGRect)contentViewFrame {
     self.tabBar.frame = tabBarFrame;
     self.contentViewFrame = contentViewFrame;
-}
-
-- (void)setContentViewHeight:(CGFloat)H{
-    self.contentViewFrame = CGRectMake(self.contentViewFrame.origin.x, self.contentViewFrame.origin.y, self.contentViewFrame.size.width, H);
-    [self updateContentViewsFrame];
 }
 
 - (void)setViewControllers:(NSArray *)viewControllers {
@@ -126,9 +135,11 @@
     _tabBar.itemTitleFont = self.tabItemTitleFont;
     _tabBar.itemTitleSelectedFont = self.tabItemTitleSelectedFont;
     _tabBar.leftAndRightSpacing = self.leftAndRightSpacing;
+    _tabBar.selectedBgFixedWidth = self.tabItemSelectedBgFixedWidth;
+    _tabBar.itemSelectedBgImage = self.tabItemSelectedBgImage;
     
     [_tabBar setScrollEnabledAndItemFitTextWidthWithSpacing:20 andIsFullWidth:_isFullWidth];
-    [_tabBar setItemSelectedBgInsets:UIEdgeInsetsMake(kTabBarHeight - 2, 10, 0, 10) tapSwitchAnimated:NO];
+    [_tabBar setItemSelectedBgInsets:_tabItemSelectedBgInsets tapSwitchAnimated:NO];
     
     self.rootScrollView.contentSize = CGSizeMake(self.contentViewFrame.size.width * _viewControllers.count, self.contentViewFrame.size.height);
     
@@ -159,48 +170,16 @@
     _tabBar.selectedItemIndex = selectedControllerIndex;
 }
 
-- (void)setLoadViewOfChildContollerWhileAppear:(BOOL)loadViewOfChildContollerWhileAppear{
-    _loadViewOfChildContollerWhileAppear = loadViewOfChildContollerWhileAppear;
-}
-
-- (void)setTabItemTitleColor:(UIColor *)tabItemTitleColor{
-    _tabItemTitleColor = tabItemTitleColor;
-}
-
-- (void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor{
-    _tabItemTitleSelectedColor = tabItemTitleSelectedColor;
-}
-
-- (void)setTabItemSelectedBgColor:(UIColor *)tabItemSelectedBgColor{
-    _tabItemSelectedBgColor = tabItemSelectedBgColor;
-}
-
-- (void)setTabItemSelectedBgImage:(UIImage *)tabItemSelectedBgImage{
-    _tabItemSelectedBgImage = tabItemSelectedBgImage;
-}
-
 - (void)setTabItemSelectedBgCornerRadius:(CGFloat)tabItemSelectedBgCornerRadius{
     _tabItemSelectedBgCornerRadius = tabItemSelectedBgCornerRadius;
-}
-
-- (void)setLeftAndRightSpacing:(CGFloat)leftAndRightSpacing{
-    _leftAndRightSpacing = leftAndRightSpacing;
-}
-
-- (void)setTabItemTitleFont:(UIFont *)tabItemTitleFont{
-    _tabItemTitleFont = tabItemTitleFont;
-}
-
-- (void)setTabItemTitleSelectedFont:(UIFont *)tabItemTitleSelectedFont{
-    _tabItemTitleSelectedFont = tabItemTitleSelectedFont;
+    self.tabBar.itemSelectedBgCornerRadius = tabItemSelectedBgCornerRadius;
 }
 
 - (void)addOtherItem:(SKSwithItem *)item{
-    
     __weak typeof(self) weakSelf = self;
     [_tabBar setOtherItem:item tapHandler:^(SKSwithItem *item) {
-        if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(slideSwitchView:OtherItemHandler:)]) {
-            [weakSelf.delegate slideSwitchView:weakSelf OtherItemHandler:item];
+        if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(sliderSwitchView:OtherItemHandler:)]) {
+            [weakSelf.delegate sliderSwitchView:weakSelf OtherItemHandler:item];
         }
     }];
 }
@@ -212,7 +191,7 @@
     return nil;
 }
 
-#pragma mark - YPTabBarDelegate
+#pragma mark - SKTopSwithViewDelegate
 - (void)topSwithView:(SKTopSwithView *)topView didSelectedItemAtIndex:(NSInteger)index {
     
     UIViewController *oldController = nil;
@@ -234,8 +213,8 @@
     // 切换到curController
     [self.rootScrollView scrollRectToVisible:curController.view.frame animated:NO];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(slideSwitchView:didselectTab:)]) {
-        [self.delegate slideSwitchView:self didselectTab:index];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderSwitchView:didSelectItemAtIndex:)]) {
+        [self.delegate sliderSwitchView:self didSelectItemAtIndex:index];
     }
     
     // 当contentView为scrollView及其子类时，设置它支持点击状态栏回到顶部
@@ -254,8 +233,8 @@
  */
 - (BOOL)topSwithView:(SKTopSwithView *)topView shouldSelectItemAtIndex:(NSInteger)index{
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(slideSwitchView:shouldSelectItemAtIndex:)]) {
-        return [self.delegate slideSwitchView:self shouldSelectItemAtIndex:index];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderSwitchView:shouldSelectItemAtIndex:)]) {
+        return [self.delegate sliderSwitchView:self shouldSelectItemAtIndex:index];
     }
     return YES;
 }
@@ -265,8 +244,18 @@
  */
 - (void)topSwithView:(SKTopSwithView *)topView willSelectItemAtIndex:(NSInteger)index{
     // 可以写代理
-    if (self.delegate && [self.delegate respondsToSelector:@selector(slideSwitchView:willSelectItemAtIndex:)]) {
-        [self.delegate slideSwitchView:self willSelectItemAtIndex:index];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderSwitchView:willSelectItemAtIndex:)]) {
+        [self.delegate sliderSwitchView:self willSelectItemAtIndex:index];
+    }
+}
+
+/**
+ *  已经选中的index双击
+ */
+- (void)topSwithView:(SKTopSwithView *)topView didSelectedItemDoubleTapAtIndex:(NSInteger)index{
+    // 可以写代理
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderSwitchView:didSelectedItemDoubleTapAtIndex:)]) {
+        [self.delegate sliderSwitchView:self didSelectedItemDoubleTapAtIndex:index];
     }
 }
 

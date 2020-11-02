@@ -30,6 +30,11 @@
  */
 - (void)topSwithView:(SKTopSwithView *)topView didSelectedItemAtIndex:(NSInteger)index;
 
+/**
+ *  已经选中的index双击
+ */
+- (void)topSwithView:(SKTopSwithView *)topView didSelectedItemDoubleTapAtIndex:(NSInteger)index;
+
 @end
 
 @interface SKTopSwithView : UIView
@@ -48,7 +53,7 @@
 @property (nonatomic, strong) UIFont  *itemTitleSelectedFont;       // 选中时标题的字体
 @property (nonatomic, assign) CGFloat leftAndRightSpacing;          // TabBar边缘与第一个和最后一个item的距离
 @property (nonatomic, assign) NSInteger selectedItemIndex;          // 选中某一个item
-
+@property (nonatomic, assign) CGFloat selectedBgFixedWidth;         // item选中背景固定宽度
 
 /**
  *  拖动内容视图时，item的颜色是否根据拖动位置显示渐变效果，默认为YES

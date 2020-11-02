@@ -22,6 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		612066B12265CAF3007CBC7D /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612066B02265CAF3007CBC7D /* ChildViewController.m */; };
+		619419A6254FE89400E50843 /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619419A5254FE89400E50843 /* NewViewController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		94B80505963CBC6AFE348BC0 /* Pods_SKSliderSwitchView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C59BF0605B990781DDB436C1 /* Pods_SKSliderSwitchView_Tests.framework */; };
@@ -61,6 +62,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		612066AF2265CAF3007CBC7D /* ChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
 		612066B02265CAF3007CBC7D /* ChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
+		619419A4254FE89400E50843 /* NewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
+		619419A5254FE89400E50843 /* NewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
 		690C9B6A33386CF571B143B5 /* Pods-SKSliderSwitchView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKSliderSwitchView_Tests.release.xcconfig"; path = "Target Support Files/Pods-SKSliderSwitchView_Tests/Pods-SKSliderSwitchView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SKViewController.h */,
 				6003F5A6195388D20070C39A /* SKViewController.m */,
+				619419A4254FE89400E50843 /* NewViewController.h */,
+				619419A5254FE89400E50843 /* NewViewController.m */,
 				612066AF2265CAF3007CBC7D /* ChildViewController.h */,
 				612066B02265CAF3007CBC7D /* ChildViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -262,6 +267,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -374,6 +380,7 @@
 			files = (
 				6003F59E195388D20070C39A /* SKAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SKViewController.m in Sources */,
+				619419A6254FE89400E50843 /* NewViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				612066B12265CAF3007CBC7D /* ChildViewController.m in Sources */,
 			);

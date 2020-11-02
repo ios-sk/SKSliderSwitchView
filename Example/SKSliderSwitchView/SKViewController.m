@@ -12,76 +12,92 @@
 
 @interface SKViewController ()<SKSliderSwitchViewDeleagte>
 
-@property (nonatomic, retain) SKSliderSwitchView *slideSwitchView;
+@property (nonatomic, retain) SKSliderSwitchView *sliderSwitchView;
 
 @end
 
 @implementation SKViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	[self initSlideSwitchView];
+- (void)dealloc{
+    NSLog(@"释放");
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"SliderSwitchView";
+    [self initSlideSwitchView];
+}
+
 
 // 滑动选择视图
 - (void)initSlideSwitchView{
-    _slideSwitchView = [[SKSliderSwitchView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64)];
-    _slideSwitchView.delegate = self;
-    _slideSwitchView.isFullWidth = NO;
-    _slideSwitchView.backgroundColor = [UIColor whiteColor];
+    _sliderSwitchView = [[SKSliderSwitchView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64)];
+    _sliderSwitchView.delegate = self;
+    _sliderSwitchView.isFullWidth = NO;
+    _sliderSwitchView.tabItemSelectedBgImage = [UIImage imageNamed:@"icon_line"];
+    _sliderSwitchView.tabItemSelectedBgFixedWidth = 20;
+    _sliderSwitchView.tabItemSelectedBgColor = [UIColor whiteColor];
+//    _sliderSwitchView.tabItemSelectedBgCornerRadius = 10;
+    _sliderSwitchView.tabItemSelectedBgInsets = UIEdgeInsetsMake([SKSliderSwitchView tabBarHeight] - 6, 0, 2, 0);
+    [self.view addSubview:_sliderSwitchView];
     
-    [self.view addSubview:_slideSwitchView];
-    
-    //    self.slideSwitchView.tabItemTitleColor
-    //    self.slideSwitchView.tabItemTitleSelectedColor
-    //    self.slideSwitchView.tabItemSelectedBgColor
+//    self.slideSwitchView.tabItemTitleColor
+//    self.slideSwitchView.tabItemTitleSelectedColor
+//    self.slideSwitchView.tabItemSelectedBgColor
     
     ChildViewController *VC1 = [[ChildViewController alloc] init];
-    VC1.title = @"测试1";    ;
+    VC1.title = @"全部";    ;
     VC1.viewColor = [UIColor whiteColor];
     [self addChildViewController:VC1];
     
     ChildViewController *VC2 = [[ChildViewController alloc] init];
-    VC2.title = @"测试2";
+    VC2.title = @"进行中";
     VC2.viewColor = [UIColor redColor];
     [self addChildViewController:VC2];
     
     ChildViewController *VC3 = [[ChildViewController alloc] init];
-    VC3.title = @"测试3";
+    VC3.title = @"已完成";
     VC3.viewColor = [UIColor cyanColor];
     [self addChildViewController:VC3];
     
     ChildViewController *VC4 = [[ChildViewController alloc] init];
-    VC4.title = @"测试测试测试测试测试测试测试测试测试";
+    VC4.title = @"待评价";
     VC4.viewColor = [UIColor brownColor];
     [self addChildViewController:VC4];
     
-    _slideSwitchView.viewControllers = [NSMutableArray arrayWithObjects:VC1, VC2, VC3, VC4, nil];
+    ChildViewController *VC5 = [[ChildViewController alloc] init];
+    VC5.title = @"待电话沟通";
+    VC5.viewColor = [UIColor blueColor];
+    [self addChildViewController:VC5];
+    
+    _sliderSwitchView.viewControllers = [NSMutableArray arrayWithObjects:VC1, VC2, VC3, VC4, VC5, nil];
     
     
     SKSwithItem *item = [[SKSwithItem alloc] init];
-    item.title = @"按钮";
+    item.title = @"筛选";
     item.titleColor = [UIColor blueColor];
     item.titleFont = [UIFont systemFontOfSize:12];
     item.size = CGSizeMake(40, 40);
-    [_slideSwitchView addOtherItem:item];
+    [_sliderSwitchView addOtherItem:item];
     
 }
 
 /**
  切换到指定index
  */
-- (void)slideSwitchView:(SKSliderSwitchView *)view didselectTab:(NSUInteger)number{
-    
-    
+- (void)sliderSwitchView:(SKSliderSwitchView *)view didSelectItemAtIndex:(NSUInteger)index{
+    NSLog(@"切换到了%ld", index);
+}
+
+- (void)sliderSwitchView:(SKSliderSwitchView *)view didSelectedItemDoubleTapAtIndex:(NSInteger)index{
+    NSLog(@"选中的%ld双击", index);
 }
 
 /**
  *  最右边按钮点击事件
  */
 - (void)slideSwitchView:(SKSliderSwitchView *)view OtherItemHandler:(SKSwithItem *)item{
-    NSLog(@"1");
+    NSLog(@"右边按钮点击");
 }
 
 - (void)didReceiveMemoryWarning

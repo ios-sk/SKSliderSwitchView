@@ -105,6 +105,14 @@
         [item setContentHorizontalCenterWithVerticalOffset:5 spacing:5];
         
         [item addTarget:self action:@selector(tabItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        __weak typeof(self) weakSelf = self;
+        [item setDoubleTapHandler:^(NSInteger index) {
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(topSwithView:didSelectedItemDoubleTapAtIndex:)]) {
+                [weakSelf.delegate topSwithView:weakSelf didSelectedItemDoubleTapAtIndex:index];
+            }
+        }];
+        
     }
     // 更新每个item的位置
     [self updateItemsFrame];
@@ -275,13 +283,21 @@
     if (index < 0) {
         return;
     }
+    
+    
     SKSwithItem *item = self.items[index];
+    
+    CGFloat x = item.frameWithOutTransform.origin.x + self.itemSelectedBgInsets.left;
+    CGFloat y = item.frameWithOutTransform.origin.y + self.itemSelectedBgInsets.top;
     CGFloat width = item.frameWithOutTransform.size.width - self.itemSelectedBgInsets.left - self.itemSelectedBgInsets.right;
     CGFloat height = item.frameWithOutTransform.size.height - self.itemSelectedBgInsets.top - self.itemSelectedBgInsets.bottom;
-    self.itemSelectedBgImageView.frame = CGRectMake(item.frameWithOutTransform.origin.x + self.itemSelectedBgInsets.left,
-                                                    item.frameWithOutTransform.origin.y + self.itemSelectedBgInsets.top,
-                                                    width,
-                                                    height);
+    
+    if (self.selectedBgFixedWidth > 0) {
+        x += (item.frameWithOutTransform.size.width - self.selectedBgFixedWidth)/2;
+        width = self.selectedBgFixedWidth - self.itemSelectedBgInsets.left - self.itemSelectedBgInsets.right;
+    }
+    
+    self.itemSelectedBgImageView.frame = CGRectMake(x, y, width, height);
 }
 
 - (void)setScrollEnabledAndItemFitTextWidthWithSpacing:(CGFloat)spacing andIsFullWidth:(BOOL)fullWidth{
@@ -522,14 +538,30 @@
     if (self.itemSelectedBgScrollFollowContent) {
         CGRect frame = self.itemSelectedBgImageView.frame;
         
-        CGFloat xDiff = rightItem.frameWithOutTransform.origin.x - leftItem.frameWithOutTransform.origin.x;
-        frame.origin.x = rightScale * xDiff + leftItem.frameWithOutTransform.origin.x + self.itemSelectedBgInsets.left;
+        CGFloat rightItemX = rightItem.frameWithOutTransform.origin.x;
+        CGFloat leftItemX = leftItem.frameWithOutTransform.origin.x;
         
-        CGFloat widthDiff = rightItem.frameWithOutTransform.size.width - leftItem.frameWithOutTransform.size.width;
-        if (widthDiff != 0) {
-            CGFloat leftSelectedBgWidth = leftItem.frameWithOutTransform.size.width - self.itemSelectedBgInsets.left - self.itemSelectedBgInsets.right;
-            frame.size.width = rightScale * widthDiff + leftSelectedBgWidth;
+        if (self.selectedBgFixedWidth > 0) {
+            rightItemX += (rightItem.frameWithOutTransform.size.width - self.selectedBgFixedWidth) / 2;
+            leftItemX += (leftItem.frameWithOutTransform.size.width - self.selectedBgFixedWidth) / 2;
         }
+        
+        CGFloat xDiff = rightItemX - leftItemX;
+        
+        if (self.selectedBgFixedWidth > 0) {
+            frame.origin.x = rightScale * xDiff + leftItem.frameWithOutTransform.origin.x + self.itemSelectedBgInsets.left + (leftItem.frameWithOutTransform.size.width - self.selectedBgFixedWidth) / 2;
+            frame.size.width = self.selectedBgFixedWidth - self.itemSelectedBgInsets.left - self.itemSelectedBgInsets.right;
+            
+        }else{
+            frame.origin.x = rightScale * xDiff + leftItem.frameWithOutTransform.origin.x + self.itemSelectedBgInsets.left;
+            
+            CGFloat widthDiff = rightItem.frameWithOutTransform.size.width - leftItem.frameWithOutTransform.size.width;
+            if (widthDiff != 0) {
+                CGFloat leftSelectedBgWidth = leftItem.frameWithOutTransform.size.width - self.itemSelectedBgInsets.left - self.itemSelectedBgInsets.right;
+                frame.size.width = rightScale * widthDiff + leftSelectedBgWidth;
+            }
+        }
+        
         self.itemSelectedBgImageView.frame = frame;
     }
 }

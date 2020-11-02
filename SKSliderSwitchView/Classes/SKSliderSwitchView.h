@@ -18,39 +18,89 @@
 /**
  *  切换到指定index
  */
-- (void)slideSwitchView:(SKSliderSwitchView *)view didselectTab:(NSUInteger)number;
+- (void)sliderSwitchView:(SKSliderSwitchView *)view didSelectItemAtIndex:(NSUInteger)index;
 
 /**
  *  是否能切换到指定index
  */
-- (BOOL)slideSwitchView:(SKSliderSwitchView *)view shouldSelectItemAtIndex:(NSInteger)index;
+- (BOOL)sliderSwitchView:(SKSliderSwitchView *)view shouldSelectItemAtIndex:(NSInteger)index;
 
 /**
  *  将要切换到指定index
  */
-- (void)slideSwitchView:(SKSliderSwitchView *)view willSelectItemAtIndex:(NSInteger)index;
+- (void)sliderSwitchView:(SKSliderSwitchView *)view willSelectItemAtIndex:(NSInteger)index;
+
+/**
+ *  已经选中的index双击
+ */
+- (void)sliderSwitchView:(SKSliderSwitchView *)view didSelectedItemDoubleTapAtIndex:(NSInteger)index;
 
 /**
  *  最右边按钮点击事件
  */
-- (void)slideSwitchView:(SKSliderSwitchView *)view OtherItemHandler:(SKSwithItem *)item;
+- (void)sliderSwitchView:(SKSliderSwitchView *)view OtherItemHandler:(SKSwithItem *)item;
 
 @end
 
-@interface SKSliderSwitchView : UIView<UIScrollViewDelegate, SKTopSwithViewDelegate>
+@interface SKSliderSwitchView : UIView
 
-@property (nonatomic, strong) UIImage *tabItemSelectedBgImage;         // item选中背景图像
-@property (nonatomic, assign) CGFloat tabItemSelectedBgCornerRadius;   // item选中背景圆角
-@property (nonatomic, assign) CGFloat leftAndRightSpacing;             // TabBar边缘与第一个和最后一个item的距离
-@property (nonatomic, strong) UIColor *tabItemSelectedBgColor;         // item选中背景颜色
-@property (nonatomic, strong) UIColor *tabItemTitleColor;              // 标题颜色
-@property (nonatomic, strong) UIColor *tabItemTitleSelectedColor;      // 选中时标题的颜色
-@property (nonatomic, strong) UIFont  *tabItemTitleFont;               // 标题字体
-@property (nonatomic, strong) UIFont  *tabItemTitleSelectedFont;       // 选中时标题的字体
-@property (nonatomic, assign) BOOL isFullWidth;                        // 是否平分宽度
-@property (nonatomic, assign)  id<SKSliderSwitchViewDeleagte> delegate;
+/**
+ * item选中背景图像
+ */
+@property (nonatomic, strong) UIImage *tabItemSelectedBgImage;
 
-@property (nonatomic, strong) NSArray *itemAttrTitles; // item的attr标题  必须和vc的数量一样
+/**
+ * item选中背景圆角
+ */
+@property (nonatomic, assign) CGFloat tabItemSelectedBgCornerRadius;
+
+/**
+ * TabBar边缘与第一个和最后一个item的距离
+ */
+@property (nonatomic, assign) CGFloat leftAndRightSpacing;
+
+/**
+ * item选中背景固定宽度
+ */
+@property (nonatomic, assign) CGFloat tabItemSelectedBgFixedWidth;
+
+/**
+ * item选中背景颜色
+ */
+@property (nonatomic, strong) UIColor *tabItemSelectedBgColor;
+
+/**
+ * 标题颜色
+ */
+@property (nonatomic, strong) UIColor *tabItemTitleColor;
+
+/**
+ * 选中时标题的颜色
+ */
+@property (nonatomic, strong) UIColor *tabItemTitleSelectedColor;
+
+/**
+ * 标题字体
+ */
+@property (nonatomic, strong) UIFont  *tabItemTitleFont;
+
+/**
+ * 选中时标题的字体
+ */
+@property (nonatomic, strong) UIFont  *tabItemTitleSelectedFont;
+
+// 选中背景相对于TabItem的insets
+@property (nonatomic, assign) UIEdgeInsets tabItemSelectedBgInsets;
+
+/**
+ * 是否平分宽度
+ */
+@property (nonatomic, assign) BOOL isFullWidth;
+
+/**
+ * item的attr标题  必须和vc的数量一样
+ */
+@property (nonatomic, strong) NSArray *itemAttrTitles;
 
 /**
  所有的视图
@@ -75,6 +125,9 @@
  */
 @property (nonatomic, assign) BOOL loadViewOfChildContollerWhileAppear;
 
+
+@property (nonatomic, assign)  id<SKSliderSwitchViewDeleagte> delegate;
+
 /**
  手动设置tab位置 和content的位置
  
@@ -95,7 +148,9 @@
  */
 - (UIViewController *)selectedController;
 
-- (void)setContentViewHeight:(CGFloat)H;
-
+/**
+ * tabBar高度
+ */
++ (CGFloat)tabBarHeight;
 
 @end
